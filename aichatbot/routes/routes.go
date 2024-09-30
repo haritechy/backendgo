@@ -8,7 +8,6 @@ import (
 )
 
 func SetupRoutes(r *gin.Engine) {
-	r.Use(middleware.AuthorizeJWT())
 	r.POST("/generate", controller.GenerateHandler)
 	r.POST("/get-response", controller.GetResponseByPrompt)
 
