@@ -1,0 +1,37 @@
+# Go binary files
+*.exe
+*.exe~
+*.out
+*.test
+
+# Dependency directories
+vendor/
+
+# Go workspace files
+*.swp
+*.swo
+*.tmp
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Build directories
+build/
+bin/
+out/
+
+# Go module cache
+go.sum
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
+
+# Allow the .env file
+!allow.env

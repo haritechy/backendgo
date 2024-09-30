@@ -2,7 +2,6 @@ package routes
 
 import (
 	"slack-chatbot/controller"
-	"slack-chatbot/middleware"
 
 	"github.com/gin-gonic/gin"
 )

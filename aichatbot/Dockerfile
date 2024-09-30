@@ -1,5 +1,5 @@
 # Use the official Golang image as a build stage
-FROM golang:1.21 AS builder
+FROM golang:1.23 AS builder
 
 # Set the Current Working Directory inside the container
 WORKDIR /aichatbot
@@ -18,6 +18,9 @@ RUN go build -o myapp .
 
 # Start a new stage from scratch
 FROM alpine:latest
+
+# Install necessary dependencies for running the Go app
+RUN apk add --no-cache ca-certificates
 
 # Set the Current Working Directory
 WORKDIR /root/
