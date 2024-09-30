@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      GEMINI_API_KEY: "AIzaSyBUiRYimT0GT6ZndhR4_2CfD4UoYyzeVpo"
+      JWT_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+      DB_HOST: "localhost"
+      DB_USER: "postgres"
+      DB_PASSWORD: "postgres@123"
+      DB_NAME: "chatbot"
+      DB_PORT: "5432"
+      DB_TIMEZONE: "Asia/Kolkata"
+      MAIL: "hariharanbalusamy88@gmail.com"
+      PASSWORD: "mrrl wcps rljn rbaz"
+      SMTPHOST: "smtp.gmail.com"
+      SMTPPORT: "587"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres@123"
+      POSTGRES_DB: "chatbot"
+    ports:
+      - "5432:5432"
