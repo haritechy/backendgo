@@ -25,11 +25,12 @@ type PromptResponse struct {
 	Prompt    string    `json:"prompt"`
 	Response  string    `json:"response"`
 	CreatedAt time.Time `json:"created_at"`
+	UserID    int       `json:"ids" gorm:"index"`
 }
 
 type User struct {
 	gorm.Model
-
+	ID        int    `json:"id" gorm:"primaryKey"`
 	FirstName string `json:"firstname"`
 	LastName  string `json:"lastname" `
 	FullName  string `json:"fullname"`
@@ -40,7 +41,6 @@ type User struct {
 
 type Claims struct {
 	Email string `json:"email"  binding:"required" gorm:"not null"`
-
 	jwt.StandardClaims
 }
 type Otp struct {

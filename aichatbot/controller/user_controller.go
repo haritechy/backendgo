@@ -51,13 +51,13 @@ func UserRegister(c *gin.Context) {
 		return
 	}
 
-	if err := utils.ValidateEmail(UserRegister.Email); err != nil {
+	// if err := utils.ValidateEmail(UserRegister.Email); err != nil {
 
-		logger.Errorf("Invalid email fomartd %v", err)
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid email"})
-		return
+	// 	logger.Errorf("Invalid email fomartd %v", err)
+	// 	c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid email"})
+	// 	return
 
-	}
+	// }
 
 	var existingUser models.User
 	if err := database.DB.Where("email = ?", UserRegister.Email).First(&existingUser).Error; err == nil {
@@ -215,6 +215,7 @@ func UserLogin(c *gin.Context) {
 	logger.Infof("User logged in successfully: %v", user.Email)
 	c.JSON(http.StatusOK, gin.H{"message": "userlogin succesful",
 		"login_token": token,
+		"data":        &user,
 	})
 }
 func UserForgot(c *gin.Context) {

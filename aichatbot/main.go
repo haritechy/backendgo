@@ -18,8 +18,10 @@ func main() {
 	r := gin.Default()
 
 	r.Use(middleware.CorsMiddleware())
+
 	database.InitDB()
 	routes.SetupRoutes(r)
+	routes.UserRoutes(r)
 	if err := r.Run(":8080"); err != nil {
 		log.Fatalf("Failed to run server: %v", err)
 	}
